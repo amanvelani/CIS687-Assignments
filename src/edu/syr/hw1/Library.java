@@ -20,6 +20,7 @@ public class Library {
         try{
             if(find.length() == 0) return null;
             List<String> books_found = new ArrayList<>();
+            // To get unique books from duplicates
             Set<String> unique_books = new HashSet<>();
             for(String book : book_list) {
                 String lowerCase_book = book.toLowerCase();
@@ -27,6 +28,7 @@ public class Library {
                     unique_books.add(book);
                 }
             }
+            if(unique_books.size() == 0) return null;
             for(String unique : unique_books){
                 books_found.add(unique);
             }
@@ -36,21 +38,22 @@ public class Library {
             return null;
         }
     }
-
+    //Testing
     public static void main(String[] args) {
-        String[] publications = {
+        String[] books = {
                 "The Go Programming Language, by Alan Donovan and Brian Kernighan",
+                "Java Programming, by John Doe",
                 "Java Programming, by John Doe",
                 "Python for Beginners, by Jane Smith",
                 "Java Programming, By Aman"
         };
 
         Library library = new Library();
-        library.init(publications);
+        library.init(books);
 
-        String query = "by";
+        String query = "ja";
         List<String> result = library.search(query);
-        System.out.println("Search result for '" + query + "': ");
+        System.out.println("Following books that match you search result for '" + query + "': ");
         if(result != null){
             for(String res : result){
                 System.out.println(res);
