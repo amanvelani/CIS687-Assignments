@@ -1,25 +1,22 @@
 package edu.syr.hw1;
 
-import java.sql.Array;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Library {
     private List<String> book_list;
     public void init(String[] input){
-        if(input.length == 0) return;
+        if(input.length == 0 || input == null) throw new NullPointerException("Input is Null");
         book_list = new ArrayList<>();
-        for(String s : input){
-            book_list.add(s);
+        for(String book : input) {
+            if (book.length() == 0 || book == null || book.equals("")) {
+                continue;
+            } else book_list.add(book);
         }
     }
 
     public List<String> search(String find){
         try{
             if(find.length() == 0) return null;
-            List<String> books_found = new ArrayList<>();
             // To get unique books from duplicates
             Set<String> unique_books = new HashSet<>();
             for(String book : book_list) {
@@ -29,29 +26,23 @@ public class Library {
                 }
             }
             if(unique_books.size() == 0) return null;
-            for(String unique : unique_books){
-                books_found.add(unique);
-            }
-            return books_found;
-        }catch (Exception e) {
-            System.out.println(e);
-            return null;
+            return new ArrayList<>(unique_books);
+        }catch (IllegalArgumentException e) {
+            throw e;
+        }catch (Exception exp){
+            throw exp;
         }
     }
     //Testing
     public static void main(String[] args) {
         String[] books = {
-                "The Go Programming Language, by Alan Donovan and Brian Kernighan",
-                "Java Programming, by John Doe",
-                "Java Programming, by John Doe",
-                "Python for Beginners, by Jane Smith",
-                "Java Programming, By Aman"
+                ""
         };
 
         Library library = new Library();
         library.init(books);
 
-        String query = "ja";
+        String query = "jane";
         List<String> result = library.search(query);
         System.out.println("Following books that match you search result for '" + query + "': ");
         if(result != null){

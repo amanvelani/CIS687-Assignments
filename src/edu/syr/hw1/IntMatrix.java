@@ -6,7 +6,7 @@ public class IntMatrix {
     private int t_cols;
     public IntMatrix(int r, int c) {
         if(r <= 0 || c <= 0){
-            throw new UnsupportedOperationException("");
+            throw new IllegalArgumentException("Invalid cells");
         }
         this.t_rows = r;
         this.t_cols = c;
@@ -15,21 +15,32 @@ public class IntMatrix {
     }
     public int get(int r, int c) {
         //Check if the argument is inbound
-        check_valid(r, c);
-        int local_index = r * t_cols + c;
-        return data[local_index];
+        try{
+            check_valid(r, c);
+            int local_index = r * t_cols + c;
+            return data[local_index];
+        }catch (Exception e){
+            System.out.println(e);
+            return 0;
+        }
     }
 
     public void set(int r, int c, int val) {
-        check_valid(r, c);
-        int local_index = r * t_cols + c;
-        data[local_index] = val;
+        try{
+            check_valid(r, c);
+            int local_index = r * t_cols + c;
+            data[local_index] = val;
+        }catch (Exception e){
+            System.out.println(e);
+        }
     }
 
     private void check_valid(int row, int col){
         if(row < 0 || row >= t_rows || col < 0 || col >= t_cols){
+//            System.out.println("Invalid cell: Row - " + row + " Column - " + col);
             throw new IllegalArgumentException("Invalid cell: Row - " + row + " Column - " + col);
         }
+
     }
 
     public void initialize(int val) {
@@ -53,6 +64,7 @@ public class IntMatrix {
         mat.set(0,1,2);
         mat.set(0,2,3);
         mat.print_data();
+        mat.set(0,3,4);
         mat.set(1,0,4);
         mat.set(1,1,5);
         mat.set(1,2,6);
