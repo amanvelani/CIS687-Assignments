@@ -1,12 +1,14 @@
 package edu.syr.hw1;
 
+import java.util.Arrays;
+
 public class IntMatrix {
     private int[] data;
     private int t_rows;
     private int t_cols;
     public IntMatrix(int r, int c) {
         if(r <= 0 || c <= 0){
-            throw new IllegalArgumentException("Invalid cells");
+            throw new UnsupportedOperationException("Rows and cols cannot be <= 0");
         }
         this.t_rows = r;
         this.t_cols = c;
@@ -19,59 +21,31 @@ public class IntMatrix {
             check_valid(r, c);
             int local_index = r * t_cols + c;
             return data[local_index];
-        }catch (Exception e){
-            System.out.println(e);
-            return 0;
+        }catch (UnsupportedOperationException e){
+            System.out.println(e.getMessage());
+            return -1;
         }
     }
 
     public void set(int r, int c, int val) {
-        try{
+        try {
             check_valid(r, c);
             int local_index = r * t_cols + c;
             data[local_index] = val;
-        }catch (Exception e){
-            System.out.println(e);
+        }catch (UnsupportedOperationException e){
+            System.out.println(e.getMessage());
         }
     }
 
     private void check_valid(int row, int col){
         if(row < 0 || row >= t_rows || col < 0 || col >= t_cols){
-//            System.out.println("Invalid cell: Row - " + row + " Column - " + col);
-            throw new IllegalArgumentException("Invalid cell: Row - " + row + " Column - " + col);
+            throw new UnsupportedOperationException("Invalid Cells: Out of bounds");
         }
 
     }
 
     public void initialize(int val) {
-        for(int i = 0; i<data.length; i++){
-            data[i] = val;
-        }
+        Arrays.fill(data, val);
     }
-
-    public void print_data(){
-        System.out.print("Data: ");
-        for(int i = 0; i<data.length; i++){
-            System.out.print(data[i]);
-        }
-        System.out.println("");
-    }
-
-    public static void main(String[] args){
-        IntMatrix mat = new IntMatrix(2,3);
-        mat.print_data();
-        mat.set(0,0,1);
-        mat.set(0,1,2);
-        mat.set(0,2,3);
-        mat.print_data();
-        mat.set(0,3,4);
-        mat.set(1,0,4);
-        mat.set(1,1,5);
-        mat.set(1,2,6);
-        mat.print_data();
-    }
-
-
-
 }
 
