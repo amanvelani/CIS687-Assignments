@@ -45,7 +45,11 @@ public class IntMatrix {
     }
 
     public void initialize(int val) {
-        Arrays.fill(data, val);
+        if(val >= 0) {
+            Arrays.fill(data, val);
+        }else{
+            System.out.println("Not valid input!");
+        }
     }
 }
 
