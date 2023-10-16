@@ -1,0 +1,5 @@
+{
+    "java.project.referencedLibraries": [
+    "demojunit/junit-platform-console-standalone-1.8.1.jar"
+    ]
+}

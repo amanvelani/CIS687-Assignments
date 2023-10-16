@@ -70,11 +70,11 @@ public class Book {
             return false;
         }
         final Book otherBook = (Book) obj;
-        if (this.author.equals(otherBook.author) &&
+        if (this.author.toLowerCase().equals(otherBook.author.toLowerCase()) &&
                 this.isbn.equals(otherBook.isbn) &&
-                this.publisher.equals(otherBook.publisher) &&
+                this.publisher.toLowerCase().equals(otherBook.publisher.toLowerCase()) &&
                 this.yearPublished == otherBook.yearPublished &&
-                this.title.equals(otherBook.title)) {
+                this.title.toLowerCase().equals(otherBook.title.toLowerCase())) {
             return true;
         }
         return false;

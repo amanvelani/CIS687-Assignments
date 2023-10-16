@@ -10,9 +10,11 @@ import java.util.Set;
 
 public class Library {
     private List<Book> book_list;
+    public Library(){
+        book_list = new ArrayList<>();
+    }
 
     public void add(Book input_book){
-        book_list = new ArrayList<>();
         //Check if the book object is null then what's the point of adding to the library.
         if(input_book == null){
             System.out.println("Input book is null!");
