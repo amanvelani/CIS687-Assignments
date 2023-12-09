@@ -3,6 +3,20 @@
 
 The list of OOD_Assignment for Fall'23 Semester Syracuse.
 
+## Project : Shuttle Service Simulator
+The Project implementation can be found here: [WhereMyShuttleAt](https://github.com/rahulkulhalli/CIS687)
+### Overview
+The use-case for this project is to design a real-time university shuttle simulator. The following are the assumptions:
+- There will only be one active shuttle
+- The shuttle travels at a constant speed of 18 mph (can be configured via an API)
+- A maximum of 30 students can board the shuttle (can be configured via an API)
+- The shuttle waits for *min(15 minutes, time to fill the shuttle)* before departing
+- The shuttle drops every student at their given address. There is no preconfigured route that the shuttle takes
+- The shuttle operates on a daily schedule
+- If a student inside the shuttle invokes the /ETA endpoint, they will receive the estimated time to reach their address. This is calculated as the sum of the ETAs of all the students who boarded before this student and the ETA from the last student's address to this student's address
+- If a student outside the shuttle invokes the /ETA endpoint, they will receive the estimated time that the shuttle will require to drop all the current students and travel back to the shuttle stop
+- The location interpolation is performed using arithmetic interpolation, without considering the curvature of the earth.
+- Distances are designed as crow-flight distances, i.e., point-to-point distances. These distances consider the curvature of the earth and are calculated using the [Haversine formula](https://en.wikipedia.org/wiki/Haversine_formula).
 
 
 ## Assignment 1
