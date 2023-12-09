@@ -1,8 +1,18 @@
+/*
+    Name: Aman Velani
+    SUID: 982212915
+*/
 package edu.syr.hw6;
 
 public class Strikethru extends Element{
     private Element elem;
-    public Strikethru(Element elem) {
+    public Strikethru(String s) {
+        super(s);
+        this.elem = new Element(s);
+    }
+
+    public Strikethru(Element elem){
+        super(elem.str);
         this.elem = elem;
     }
 
@@ -13,6 +23,11 @@ public class Strikethru extends Element{
 
     @Override
     public String toMarkdown() {
-        return "~~" + elem.toMarkdown() + "~~";
+        return "~~" + elem.toMarkdown().trim() + "~~ ";
+    }
+
+    @Override
+    public String toHtml() {
+        return "<s>" + elem.toHtml().trim() + "</s> ";
     }
 }
