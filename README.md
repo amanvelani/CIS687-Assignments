@@ -1,9 +1,9 @@
 
-# OOD_Assignment
+# CIS 687 Assignment
 
-The list of OOD_Assignment for Fall'23 Semester Syracuse.
+The list of CIS 687 (Object Oriented Design) for Fall'23 Semester for Syracuse University.
 
-## Project : Shuttle Service Simulator
+## Project: Shuttle Service Simulator
 The Project implementation can be found here: [WhereMyShuttleAt](https://github.com/rahulkulhalli/CIS687)
 ### Overview
 The use-case for this project is to design a real-time university shuttle simulator. The following are the assumptions:
@@ -24,11 +24,11 @@ The use-case for this project is to design a real-time university shuttle simula
 All code for this assignment should be in package edu.syr.hw1. Follow the same
 convention for future assignments, i.e. code for homework 2 should be in
 package edu.syr.hw2 and so on.
-For the most part your submissions will be graded by running unit tests. Don't
+For the most part, your submissions will be graded by running unit tests. Don't
 change the structure of any code given to you as part of the assignment. More
-specifically, class names, method signatures, field visibility should not be
+specifically, class names, method signatures, and field visibility should not be
 changed. Check with the TA for specific questions.
-1. Write a class, Hello, which has a main method which prints "Hello World" to
+1. Write a class, Hello, which has a main method that prints "Hello World" to
     stdout. This class will be run like so: java -cp . edu/syr/hw1/Hello
 
 2. Write a class, Greeting, which has a method greet(), which prints "Hello World" to stdout. This class will be run like so:
@@ -41,7 +41,7 @@ changed. Check with the TA for specific questions.
             }
         }
 
-3. Write a class, Library, with init() and search() methods.The init() method will be passed a String[] as parameter. An example of the String in the array: "The Go Programming Language, Alan Donovan and Brian Kernighan" The init method should keep a reference to the array param in a field This list is the catlog of the Library, i.e. these are all the publications in the Library available to be borrowed. The search() method will be passed a String as parameter, and will return one of the matching items stored in the Library's catalog.
+3. Write a class, Library, with init() and search() methods. The init() method will be passed a String[] as a parameter. An example of the String in the array: "The Go Programming Language, Alan Donovan and Brian Kernighan" The init method should keep a reference to the array param in a field This list is the catlog of the Library, i.e. these are all the publications in the Library available to be borrowed. The search() method will be passed a String as parameter and will return one of the matching items stored in the Library's catalog.
 4. Complete the implementation of the IntMatrix class. The idea is to use a one-dimensional array as a matrix. The field data should be initialized by the constructor to a size large enough to hold all the elements of the matrix. Feel free to add other fields as needed. The get() and set() methods should convert the row and column parameters to an appropriate index, and do error checking based on the size of the matrix.
 For example:
 
